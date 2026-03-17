@@ -1,36 +1,64 @@
+:root {
+    --font-default: "Datatype", monospace;
+    --font-principal-title: "Archivo Black", sans-serif;
+    --font-secondary-title: "Roboto", sans-serif;
+    --font-secondary-title-wgt: 900;
+
+    --color-primary: #1a2340;
+    --color-secondary: #c9a84c;
+    --color-background: #f8f7f4;
+    --color-bkg-figures: #eeeae3;
+    --color-border: #b8a87a;
+    --color-text: #2e2e2e;
+}
+
 body {
-    color: #333333;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: var(--color-text);
+    font-family: var(--font-default);
     width: 940px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: var(--color-background);
+    line-height: 1.7;
 }
 
 h1 {
+    font-family: var(--font-principal-title);
+    padding: 18px 14px;
+    color: #ffffff;
     background-image: url(../img/sobre-background.jpg);
-    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    border-bottom: 3px solid var(--color-secondary);
 }
 
 h2 {
-    border-bottom: 2px groove #333333;
-    margin-top: 30px;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 4px;
+    margin-top: 28px;
 }
 
 figure {
-    background-color: #F2EDED;
-    border: 1px solid #ccc;
+    background-color: var(--color-bkg-figures);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
     text-align: center;
-    padding: 15px;
-    margin: 30px;
+    padding: 8px;
+    margin: 16px auto;
 }
 
 figcaption {
     font-style: italic;
-    margin-top: 10px;
+    font-family: var(--font-secondary-title);
+    color: var(--color-primary);
+    font-size: 0.9em;
+    margin-top: 6px;
 }
 
-p {
-    padding: 0 45px;
-    text-indent: 15px;
-    text-align: justify;
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 6px;
 }
