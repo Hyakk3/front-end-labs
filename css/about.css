@@ -18,6 +18,16 @@ body {
     width: 940px;
     background-color: var(--color-background);
     line-height: 1.7;
+    margin: 8px auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+p {
+    margin: 1em 0;
 }
 
 h1 {
@@ -29,6 +39,7 @@ h1 {
     background-position: center;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
     border-bottom: 3px solid var(--color-secondary);
+    margin: 0.67em 0;
 }
 
 h2 {
@@ -36,6 +47,7 @@ h2 {
     border-bottom: 2px solid var(--color-secondary);
     padding-bottom: 4px;
     margin-top: 28px;
+    margin-bottom: 0.83em;
 }
 
 figure {
@@ -57,6 +69,7 @@ figcaption {
 
 ul {
     padding-left: 20px;
+    margin: 1em 0;
 }
 
 ul li {
