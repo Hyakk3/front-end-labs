@@ -1,14 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="description" content="Mirror Fashion Front-end Labs — Laboratório de exercícios de HTML e CSS">
+    <title>Front-end Labs | Mirror Fashion</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+<body class="animate-fade-in">
 
-<body>
-    <h1>Home</h1>
+    <div class="labs-wrapper">
+        <header class="labs-header animate-slide-in">
+            <div class="labs-header__badge">🧪 Labs</div>
+            <h1>Front-end Labs</h1>
+            <p class="labs-header__desc">Laboratório de exercícios de HTML &amp; CSS — Mirror Fashion</p>
+        </header>
+
+        <nav class="labs-nav">
+            <section class="labs-section">
+                <h2 class="labs-section__title">Páginas</h2>
+                <div class="labs-grid">
+                    <a href="about-us.html" class="lab-card">
+                        <span class="lab-card__icon">🏢</span>
+                        <span class="lab-card__name">About Us</span>
+                        <span class="lab-card__desc">Página institucional da Mirror Fashion</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="labs-section">
+                <h2 class="labs-section__title">Formulários</h2>
+                <div class="labs-grid">
+                    <a href="forms/cadastro.html" class="lab-card">
+                        <span class="lab-card__icon">📋</span>
+                        <span class="lab-card__name">Cadastro</span>
+                        <span class="lab-card__desc">Formulário completo com dados pessoais, endereço e login (CSS Grid)</span>
+                    </a>
+                    <a href="forms/fale-conosco.html" class="lab-card">
+                        <span class="lab-card__icon">💬</span>
+                        <span class="lab-card__name">Fale Conosco</span>
+                        <span class="lab-card__desc">Formulário de contato com seleção de país (CSS Grid)</span>
+                    </a>
+                    <a href="forms/send-message.html" class="lab-card">
+                        <span class="lab-card__icon">✉️</span>
+                        <span class="lab-card__name">Enviar Mensagem</span>
+                        <span class="lab-card__desc">Formulário rápido de mensagem (CSS Grid)</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="labs-section">
+                <h2 class="labs-section__title">Exemplos CSS</h2>
+                <div class="labs-grid">
+                    <div class="lab-card lab-card--demo">
+                        <span class="lab-card__icon">🎨</span>
+                        <span class="lab-card__name">Design System</span>
+                        <div class="demo-swatches">
+                            <span class="swatch" style="background: var(--color-primary);" title="Primary"></span>
+                            <span class="swatch" style="background: var(--color-secondary);" title="Secondary"></span>
+                            <span class="swatch" style="background: var(--color-accent);" title="Accent"></span>
+                        </div>
+                    </div>
+                    <div class="lab-card lab-card--demo">
+                        <span class="lab-card__icon">🔤</span>
+                        <span class="lab-card__name">Tipografia</span>
+                        <div>
+                            <div class="destaque">Destaque</div>
+                            <div class="caixa" style="margin-top: 8px;">Caixa</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </nav>
+
+        <footer class="labs-footer">
+            Programação Front-end &mdash; Mirror Fashion Labs
+        </footer>
+    </div>
+
 </body>
-
 </html>

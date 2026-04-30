@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Formulário</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #d0d0d0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .pagina {
+            background: #ffffff;
+            width: 480px;
+            padding: 20px 28px 32px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.25);
+        }
+
+        .topo-folha {
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+        }
+
+        .topo-folha img {
+            height: 56px;
+            display: block;
+            margin: 0 auto 4px;
+        }
+
+        .topo-folha p {
+            font-size: 11.5px;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        .label-layout {
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #999;
+            margin: 10px 0 18px;
+        }
+
+        .form-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            margin-bottom: 14px;
+            gap: 8px;
+        }
+
+        .form-header h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.1;
+        }
+
+        .form-header .subtitulo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .form-header .imagem-pessoas {
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        .secao {
+            margin-bottom: 4px;
+        }
+
+        .secao-titulo {
+            background-color: #f5a623;
+            color: #000;
+            font-weight: bold;
+            font-size: 12.5px;
+            padding: 2px 6px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .campos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            padding: 0 2px;
+        }
+
+        .campo {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 2px;
+        }
+
+        .campo label {
+            font-size: 12px;
+            color: #222;
+            margin-bottom: 1px;
+        }
+
+        .campo input[type="text"],
+        .campo input[type="email"],
+        .campo input[type="date"],
+        .campo input[type="password"],
+        .campo input[type="file"],
+        .campo select {
+            width: 100%;
+            padding: 2px 4px;
+            font-size: 12px;
+            border: 1px solid #aaa;
+            background-color: #fff;
+            color: #333;
+            height: 22px;
+        }
+
+        .campo input[type="file"] {
+            height: auto;
+            padding: 2px;
+            border: none;
+            background: none;
+        }
+
+        .campo select {
+            height: 22px;
+        }
+
+        .campo-spacer {
+            height: 4px;
+        }
+
+        .acoes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .btn-cancelar {
+            background-color: #e53e00;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-enviar {
+            background-color: #1a56e0;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-cancelar:hover { background-color: #c73600; }
+        .btn-enviar:hover   { background-color: #1441b8; }
+    </style>
+</head>
+
+<body>
+    <div class="pagina">
+
+        <div class="topo-folha">
+            <img src="../img/logo.png" alt="Logo FEPI">
+            <p>Programação Front-end<br>Professor: Leandro Duarte Pereira</p>
+            <span class="label-layout">Layout Formulário</span>
+        </div>
+
+        <hr>
+
+        <div class="form-header">
+            <div>
+                <h1>Faça seu cadastro!</h1>
+                <p class="subtitulo">Compre online &#127991;</p>
+            </div>
+            <img class="imagem-pessoas" src="../img/logo.png" alt="Compre online" onerror="this.style.display='none'">
+        </div>
+
+        <form action="cadastro.html" method="get">
+
+            <div class="secao">
+                <span class="secao-titulo">Dados Pessoais</span>
+                <div class="campos">
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome">
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="campo">
+                        <label for="nascimento">Data de Nascimento</label>
+                        <input type="date" id="nascimento" name="nascimento">
+                    </div>
+                    <div class="campo">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao">
+                <span class="secao-titulo">Endereço</span>
+                <div class="campos">
+                    <div class="campo">
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" name="rua">
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número</label>
+                        <select id="numero" name="numero">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro">
+                    </div>
+                    <div class="campo">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9">
+                    </div>
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade">
+                    </div>
+                    <div class="campo">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado">
+                            <option value="" disabled selected>Selecione um estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao">
+                <span class="secao-titulo">Login</span>
+                <div class="campos">
+                    <div class="campo">
+                        <label for="foto">Imagem de perfil</label>
+                        <input type="file" id="foto" name="foto" accept="image/*">
+                    </div>
+                    <div class="campo">
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login">
+                    </div>
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha">
+                    </div>
+                    <div class="campo">
+                        <label for="confirma-senha">Confirmação de Senha</label>
+                        <input type="password" id="confirma-senha" name="confirma-senha">
+                    </div>
+                </div>
+            </div>
+
+            <div class="acoes">
+                <button type="reset" class="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="pagina" id="success-container" style="display: none; text-align: center; padding: 60px 28px;">
+        <p style="font-size: 50px;">🎉</p>
+        <h1 style="font-size: 22px; margin: 12px 0 8px;">Cadastro realizado!</h1>
+        <p style="color: #555; margin-bottom: 20px;">Sua conta foi criada com sucesso.</p>
+        <a href="cadastro.html" class="btn-enviar" style="text-decoration: none; display: inline-block; padding: 8px 24px;">Novo Cadastro</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('login')) {
+            document.querySelector('.pagina').style.display = 'none';
+            document.getElementById('success-container').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensagem</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/fale-conosco.css">
+</head>
+<body class="fale-conosco-body animate-fade-in">
+    <main class="container" id="form-container">
+        <header>
+            <h1>Enviar Mensagem</h1>
+            <p class="subtitle">Use o formulário abaixo para nos enviar uma mensagem rápida.</p>
+        </header>
+        
+        <form action="send-message.html" method="get">
+            <div class="form-row">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            
+            <div class="form-row">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="form-row">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="reset" class="btn-limpar">Limpar</button>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </div>
+        </form>
+
+        <footer class="contact-info">
+            Mirror Fashion Labs
+        </footer>
+    </main>
+
+    <main class="container" id="success-container" style="display: none; text-align: center; justify-content: center; align-items: center; min-height: 300px;">
+        <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+        <h1>Mensagem Enviada!</h1>
+        <p class="subtitle">Sua mensagem foi enviada com sucesso. Em breve entraremos em contato.</p>
+        <div style="margin-top: 20px;">
+            <a href="send-message.html" class="btn-enviar" style="text-decoration: none; display: inline-block; width: auto; padding: 12px 30px;">Enviar Outra</a>
+        </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('nome')) {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('success-container').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

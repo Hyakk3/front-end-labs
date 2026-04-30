@@ -1,100 +1,152 @@
-:root {
-    --font-default: "Datatype", monospace;
-    --font-principal-title: "Archivo Black", sans-serif;
-    --font-secondary-title: "Roboto", sans-serif;
-    --font-secondary-title-wgt: 900;
-
-    --color-primary: #1a2340;
-    --color-secondary: #c9a84c;
-    --color-background: #f8f7f4;
-    --color-bkg-figures: #eeeae3;
-    --color-border: #b8a87a;
-    --color-text: #2e2e2e;
+.site-header {
+    padding: var(--space-lg) 0;
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-body {
-    color: var(--color-text);
-    font-family: var(--font-default);
-    width: 940px;
-    background-color: var(--color-background);
+.site-header__logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-xl);
+}
+
+.hero-section {
+    margin-bottom: var(--space-xl);
+    text-align: left;
+}
+
+.hero-section__title {
+    font-family: var(--font-principal-title);
+    font-size: 3rem;
+    color: var(--color-text-heading);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+}
+
+.content-section {
+    margin-top: var(--space-xl);
+}
+
+.content-section__title {
+    font-family: var(--font-secondary-title);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--color-text-heading);
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.content-section__text {
+    margin: 1em 0;
+    font-size: 1.125rem;
     line-height: 1.7;
-    margin: 8px auto;
+    color: var(--color-text);
+}
+
+strong {
+    color: var(--color-text-heading);
+    font-weight: 600;
+}
+
+.figure-card {
+    text-align: center;
+    margin: var(--space-md) auto;
+    display: inline-block;
+    background-color: var(--color-background-alt);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.figure-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.figure-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.figure-card__caption {
+    font-family: var(--font-sans);
+    color: var(--color-text-muted);
+    font-size: 0.9em;
+    margin-top: 12px;
+}
+
+.figure-card--center {
+    display: block;
+    max-width: 100%;
+    margin: var(--space-lg) auto;
+}
+
+.figure-card--float-right {
+    float: right;
+    margin: 0 0 var(--space-md) var(--space-lg);
+    max-width: 300px;
+}
+
+.benefits-list {
+    margin: 1em 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+.benefits-list__item {
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 1.1rem;
+    padding-left: 28px;
+    color: var(--color-text);
+}
+
+.benefits-list__item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.benefits-list__item a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.benefits-list__item a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
 }
 
 a {
+    color: var(--color-secondary);
     text-decoration: none;
+    transition: color var(--transition);
 }
 
-
-p {
-    margin: 1em 0;
-}
-
-h1 {
-    font-family: var(--font-principal-title);
-    padding: 18px 14px;
-    color: #ffffff;
-    background-image: url(../img/sobre-background.jpg);
-    background-size: cover;
-    background-position: center;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    border-bottom: 3px solid var(--color-secondary);
-    margin: 0.67em 0;
-}
-
-h2 {
+a:hover {
     color: var(--color-primary);
-    border-bottom: 2px solid var(--color-secondary);
-    padding-bottom: 4px;
-    margin-top: 28px;
-    margin-bottom: 0.83em;
-}
-
-figure {
-    background-color: var(--color-bkg-figures);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    text-align: center;
-    padding: 8px;
-    margin: 16px auto;
-}
-
-figcaption {
-    font-style: italic;
-    font-family: var(--font-secondary-title);
-    color: var(--color-primary);
-    font-size: 0.9em;
-    margin-top: 6px;
-}
-
-ul {
-    padding-left: 20px;
-    margin: 1em 0;
-}
-
-ul li {
-    margin-bottom: 6px;
-}
-
-#centro-distribuicao {
-    margin-left: auto;
-    margin-right: auto;
-    width: 550px;
-}
-
-#rodape {
-    color: #777;
-    margin: 30px 0;
-    padding: 30px 0;
-}
-
-#rodape img {
-    margin-right: 30px;
-    vertical-align: middle;
-    width: 94px;
-}
-
-#familia-pelho {
-    float: right;
-    margin: 0 0 10px 10px;
+    text-decoration: underline;
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fale Conosco - Entre em contato com a Mirror Fashion">
+    <title>Fale Conosco | Mirror Fashion</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="forms-body animate-fade-in">
+
+    <main class="form-card" id="form-container">
+        <header>
+            <h1>Fale Conosco</h1>
+            <p class="subtitle">Estamos aqui para ajudar! Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+        </header>
+
+        <form action="fale-conosco.html" method="get">
+            <div class="form-grid-2">
+                <div class="form-field">
+                    <label for="primeiro-nome">Primeiro Nome</label>
+                    <input type="text" id="primeiro-nome" name="primeiro-nome" placeholder="Seu nome..">
+                </div>
+                <div class="form-field">
+                    <label for="ultimo-nome">Último Nome</label>
+                    <input type="text" id="ultimo-nome" name="ultimo-nome" placeholder="Seu sobrenome..">
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com">
+            </div>
+
+            <div class="form-field">
+                <label for="pais">País</label>
+                <select id="pais" name="pais">
+                    <option value="" disabled selected>Selecione um país</option>
+                    <option value="br">Brasil</option>
+                    <option value="pt">Portugal</option>
+                    <option value="us">Estados Unidos</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="assunto">Assunto</label>
+                <textarea id="assunto" name="assunto" placeholder="Escreva aqui sua mensagem.."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="btn-cancel">Limpar</button>
+                <button type="submit" class="btn-submit">Enviar</button>
+            </div>
+        </form>
+
+        <footer>
+            Em caso de dúvidas entre em contato 📞 — <strong>Mirror Fashion Labs</strong>
+        </footer>
+    </main>
+
+    <main class="form-card" id="success-container" style="display: none; text-align: center; align-items: center;">
+        <div style="font-size: 60px;">✅</div>
+        <h1>Mensagem Enviada!</h1>
+        <p class="subtitle">Sua mensagem foi enviada com sucesso. Em breve entraremos em contato.</p>
+        <div>
+            <a href="fale-conosco.html" class="btn-submit" style="text-decoration: none; display: inline-block; padding: 12px 30px;">Voltar ao Formulário</a>
+        </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('email')) {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('success-container').style.display = 'grid';
+        }
+    </script>
+</body>
+</html>

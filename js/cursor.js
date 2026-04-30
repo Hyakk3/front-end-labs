@@ -1,5 +1,4 @@
 (function () {
-    // Inject styles
     const style = document.createElement('style');
     style.innerHTML = `
         #cursor-label {
@@ -25,13 +24,11 @@
     `;
     document.head.appendChild(style);
 
-    // Inject label
     const label = document.createElement('div');
     label.id = "cursor-label";
     label.innerText = "Efeito: rainbow (clique para trocar)";
     document.body.appendChild(label);
 
-    // Inject canvas
     const canvas = document.createElement('canvas');
     canvas.id = "cursor-canvas";
     document.body.appendChild(canvas);
@@ -67,7 +64,6 @@
     }
 
     const effects = [
-        // 🌈 RAINBOW
         {
             name: "rainbow",
             update() {
@@ -96,7 +92,6 @@
             }
         },
 
-        // ✨ FAIRY
         {
             name: "fairy",
             update() {
@@ -115,14 +110,13 @@
                 particles = particles.filter(p => p.life > 0);
             },
             draw() {
-                ctx.fillStyle = "gray"; // Changed from white to be visible on light background
+                ctx.fillStyle = "gray"; 
                 particles.forEach(p => {
                     ctx.fillRect(p.x, p.y, p.size, p.size);
                 });
             }
         },
 
-        // 👻 GHOST
         {
             name: "ghost",
             update() {
@@ -141,14 +135,13 @@
                     ctx.globalAlpha = p.life / 50;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fillStyle = "gray"; // Changed from white to be visible on light background
+                    ctx.fillStyle = "gray"; 
                     ctx.fill();
                     ctx.globalAlpha = 1;
                 });
             }
         },
 
-        // 💬 EMOJI
         {
             name: "emoji",
             update() {
@@ -174,7 +167,6 @@
             }
         },
 
-        // 🔵 BUBBLE
         {
             name: "bubbles",
             update() {
