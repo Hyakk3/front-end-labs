@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards de Ofertas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 50%, #e8eaf6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .cards-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 280px;
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 16px;
+            border: 1.5px solid #e8eaf0;
+            box-shadow: 0 4px 24px rgba(43, 120, 228, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2b78e4, #6aa3f5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(43, 120, 228, 0.15);
+            border-color: #c5d9f9;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card.elite {
+            border: 2px solid #fca311;
+            padding: 52px 28px;
+            box-shadow: 0 8px 32px rgba(252, 163, 17, 0.2);
+        }
+
+        .card.elite::before {
+            background: linear-gradient(90deg, #fca311, #ffd166);
+            opacity: 1;
+        }
+
+        .card.elite:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 56px rgba(252, 163, 17, 0.3);
+            border-color: #fca311;
+        }
+
+        .card h2 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 22px;
+            letter-spacing: 0.3px;
+        }
+
+        .price-container {
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .price {
+            display: inline-flex;
+            align-items: baseline;
+            color: #2b78e4;
+            border-bottom: 1.5px dashed #93baf7;
+            padding-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .price {
+            color: #1a5cbf;
+        }
+
+        .card.elite .price {
+            color: #2b78e4;
+        }
+
+        .currency {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .value {
+            font-size: 46px;
+            font-weight: 800;
+            margin: 0 2px;
+            line-height: 1;
+        }
+
+        .period {
+            font-size: 12px;
+            font-weight: 500;
+            color: #7a8fad;
+            align-self: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex-grow: 1;
+        }
+
+        .features li {
+            font-size: 13px;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s ease;
+        }
+
+        .features li:hover {
+            color: #1a1a2e;
+        }
+
+        .features li svg {
+            flex-shrink: 0;
+            transition: stroke 0.2s ease;
+        }
+
+        .features li:hover svg {
+            stroke: #2b78e4;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #ffffff;
+            border: 1.5px solid #2b78e4;
+            color: #2b78e4;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            background-color: #2b78e4;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(43, 120, 228, 0.35);
+            transform: scale(1.02);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .card.elite .btn {
+            background-color: #fca311;
+            border-color: #fca311;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(252, 163, 17, 0.3);
+        }
+
+        .card.elite .btn:hover {
+            background-color: #e8920a;
+            border-color: #e8920a;
+            box-shadow: 0 8px 24px rgba(252, 163, 17, 0.5);
+        }
+
+        .badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: linear-gradient(135deg, #fca311, #ffd166);
+            color: #7a3e00;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="cards-container">
+        <div class="card">
+            <h2>Gratuito</h2>
+            <div class="price-container">
+                <div class="price">
+                    <span class="currency">R$</span>
+                    <span class="value">0</span>
+                    <span class="period">/mês</span>
+                </div>
+            </div>
+            <ul class="features">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    1 usuário
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    3 contas de design
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    Suporte por e-mail
+                </li>
+            </ul>
+            <button class="btn">Escolher plano</button>
+        </div>
+
+        <div class="card elite">
+            <span class="badge">Popular</span>
+            <h2>Elite</h2>
+            <div class="price-container">
+                <div class="price">
+                    <span class="currency">R$</span>
+                    <span class="value">99</span>
+                    <span class="period">/mês</span>
+                </div>
+            </div>
+            <ul class="features">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    Usuários ilimitados
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    10 contas de design
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    100 implantações
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    Suporte 24h por dia
+                </li>
+            </ul>
+            <button class="btn">Escolher plano</button>
+        </div>
+
+        <div class="card">
+            <h2>Profissional</h2>
+            <div class="price-container">
+                <div class="price">
+                    <span class="currency">R$</span>
+                    <span class="value">49</span>
+                    <span class="period">/mês</span>
+                </div>
+            </div>
+            <ul class="features">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    100 usuários
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    3 contas de design
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7a8fad" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                        <polyline points="9 12 12 15 16 9"></polyline>
+                    </svg>
+                    Suporte por e-mail
+                </li>
+            </ul>
+            <button class="btn">Escolher plano</button>
+        </div>
+    </div>
+</body>
+</html>
